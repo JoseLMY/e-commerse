@@ -1,0 +1,89 @@
+.navBar{
+    width: 100%;
+    height: 72px;
+    display: flex;
+    margin-bottom: 46px;
+    border-bottom: 1px solid gray;
+    box-shadow: 0 0 12px gray;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.897);
+}
+.logo{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.linksContainer{
+    display: flex;
+    width: 70%;
+    height: 72px;
+}
+.links-li{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.links-li li {
+    display: flex;
+    align-items: center;
+}
+.links{
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s;
+}
+.links:hover{
+    transform: scale(1.2);
+}
+.cartNavContainer{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+    position: relative;
+    cursor: pointer;
+}
+.cartProducts{
+    position: absolute;
+}
+.productCounter{
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(41, 248, 41);
+    border-radius: 50%;
+}
+.cartNav{
+    width: 26px;
+}
+.loginContainer{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 24px;
+    height: 32px;
+    border: 1px solid gray;
+    color: black;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+.login:hover{
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.61)
+}

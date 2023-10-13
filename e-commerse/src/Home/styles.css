@@ -1,10 +1,12 @@
-.title{
-    text-align: center;
-}
 #home{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    position: absolute;
+    top: 120px;
+}
+.allArticles{
+    margin-top: 100px;
 }
 .articleContainer{
     margin: 16px;
@@ -46,8 +48,8 @@
 .cart{
     margin: 0 16px;
     transition: all 0.3s;
+    width: 30px;
 }
 .cart:hover{
     transform: scale(1.2);
-    width: 24px;
 }

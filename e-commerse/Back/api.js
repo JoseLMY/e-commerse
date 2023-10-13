@@ -24,13 +24,73 @@ connection.connect((error) => {
 //   res.send("HOME")
 // })
 app.get('/', (req, res) => {
-    connection.query("SELECT * FROM products", (err, user) => {
+    connection.query("SELECT * FROM products", (err, product) => {
     if(!err){
-      res.json(user)
+      res.json(product)
     } else {
       console.log(err);
     }
   })
+})
+app.get('/classic', (req, res) => {
+  const category = 'classic'
+  connection.query('SELECT * FROM products WHERE category = ?', [category], (err, user) => {
+  if(!err){
+    res.json(user)
+  } else {
+    console.log(err);
+  }
+})
+})
+app.get('/elegant', (req, res) => {
+  const category = 'elegant'
+  connection.query('SELECT * FROM products WHERE category = ?', [category], (err, user) => {
+  if(!err){
+    res.json(user)
+  } else {
+    console.log(err);
+  }
+})
+})
+app.get('/folkloric', (req, res) => {
+  const category = 'folkloric'
+  connection.query('SELECT * FROM products WHERE category = ?', [category], (err, user) => {
+  if(!err){
+    res.json(user)
+  } else {
+    console.log(err);
+  }
+})
+})
+app.get('/bussines', (req, res) => {
+  const category = 'bussines'
+  connection.query('SELECT * FROM products WHERE category = ?', [category], (err, user) => {
+  if(!err){
+    res.json(user)
+  } else {
+    console.log(err);
+  }
+})
+})
+app.get('/formal', (req, res) => {
+  const category = 'formal'
+  connection.query('SELECT * FROM products WHERE category = ?', [category], (err, user) => {
+  if(!err){
+    res.json(user)
+  } else {
+    console.log(err);
+  }
+})
+})
+app.get('/sport', (req, res) => {
+  const category = 'sport'
+  connection.query('SELECT * FROM products WHERE category = ?', [category], (err, user) => {
+  if(!err){
+    res.json(user)
+  } else {
+    console.log(err);
+  }
+})
 })
 // app.post('/data', (req, res) => {
 //   let dataUserJSON = (req.body);
