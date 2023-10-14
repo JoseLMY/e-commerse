@@ -1,9 +1,16 @@
+import { useContext } from "react"
 import {Link} from "react-router-dom"
+import { ShoppingBagIcon } from "@heroicons/react/24/solid"
 
-import cart from "../assets/cart.svg"
+import { ShoppingCartContext } from '../../Context'
+import { ProductDetail } from "../ProductDetail"
 
+import cart from "../../assets/cart.svg"
 import "./styles.css"
-const NavBar = () =>  {
+const NavBar = () =>  { 
+
+    const context = useContext(ShoppingCartContext)
+
     return (
         <>
             <nav className="navBar">
@@ -37,18 +44,18 @@ const NavBar = () =>  {
                 </div>
                 <div className="cartNavContainer">
                     <div className="cartProducts">
-                        <img className='cartNav' src={cart} alt='buy dress'/>
+                        <ShoppingBagIcon className="shoppingBag"/>
                     </div>
                     <div className="productCounter">
-                        <span>5</span>
+                        <span>{context.count}</span>
                     </div>
                 </div>
                 <div className="loginContainer">
                     <a className="login" href="/login">LOG IN</a>
                 </div>
+                <ProductDetail/>
             </nav>
         </>
     )
 }
-
 export {NavBar}

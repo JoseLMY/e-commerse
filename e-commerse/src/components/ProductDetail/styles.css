@@ -1,0 +1,37 @@
+.flex{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+.productDetail {
+    width: 360px;
+    height: auto;
+    max-height: 640px;
+    position: fixed;
+    background-color: aliceblue;
+    right: 6px;
+    top: 80px;
+    border: 1px solid black;
+    border-radius: 16px 0 0 16px;
+    overflow-y: scroll;
+    padding: 16px;
+    box-sizing: border-box;
+}
+.productDetail::-webkit-scrollbar{
+    width: 6px;
+}
+.productDetail::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.616);
+}
+.headerProductDetail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.xMarkIcon{
+    width: 40px;
+    height: 40px;
+    color: rgba(0, 0, 0, 0.541);
+    cursor: pointer;
+}

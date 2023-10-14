@@ -1,0 +1,8 @@
+#classic{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    top: 120px;
+    left: 40px;
+}

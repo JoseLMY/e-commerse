@@ -1,36 +1,39 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { NavBar } from './NavBar';
-import { Home } from './Home';
-import { Classic } from './Classic';
-import { Folkloric } from './Folkloric';
-import { Bussines } from './Bussines';
-import { Sport } from './Sport';
-import { Elegant } from './Elegant';
-import { Formal } from './Formal';
-import { LogIn } from './LogIn';
-import {NotFound} from './NotFound'
+import { ShoppingCartProvider } from './Context';
+import { NavBar } from './components/NavBar';
+import { Home } from './pages/Home';
+import { Classic } from './pages/Classic';
+import { Folkloric } from './pages/Folkloric';
+import { Bussines } from './pages/Bussines';
+import { Sport } from './pages/Sport';
+import { Elegant } from './pages/Elegant';
+import { Formal } from './pages/Formal';
+import { LogIn } from './pages/LogIn';
+import {NotFound} from './pages/NotFound'
 
 function App() {
   
   return (
-    <div className="App">
-      <BrowserRouter>
-          <NavBar />
-        <Routes>
-          <Route  path="/" element={<Home />} />
-          <Route  path="/classic" element={<Classic />} />
-          <Route  path="/folkloric" element={<Folkloric />} />
-          <Route  path="/bussines" element={<Bussines />} />
-          <Route  path="/sport" element={<Sport />} />
-          <Route  path="/elegant" element={<Elegant />} />
-          <Route  path="/formal" element={<Formal />} />
-          <Route  path="/login" element={<LogIn />} />
-          <Route  path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <ShoppingCartProvider >
+      <div className="App">
+        <BrowserRouter>
+            <NavBar />
+          <Routes>
+            <Route  path="/" element={<Home />} />
+            <Route  path="/classic" element={<Classic />} />
+            <Route  path="/folkloric" element={<Folkloric />} />
+            <Route  path="/bussines" element={<Bussines />} />
+            <Route  path="/sport" element={<Sport />} />
+            <Route  path="/elegant" element={<Elegant />} />
+            <Route  path="/formal" element={<Formal />} />
+            <Route  path="/login" element={<LogIn />} />
+            <Route  path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ShoppingCartProvider>
   );
 }
 

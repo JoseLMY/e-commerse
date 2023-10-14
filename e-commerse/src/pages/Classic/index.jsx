@@ -1,8 +1,14 @@
-import { useState, useEffect } from "react"
-import cart from "../assets/cart.svg"
+import React, {useEffect, useState, useContext} from 'react'
+import { PlusIcon } from '@heroicons/react/24/solid'
 
-const Formal = () => {
-    const url = 'http://localhost:5173/formal' //Here we are calling the api, in this case the api is local.
+
+import { ShoppingCartContext } from '../../Context'
+
+import "./styles.css"
+import cart from "../../assets/cart.svg"
+
+const Classic = () => {
+    const url = 'http://localhost:5173/classic' //Here we are calling the api, in this case the api is local.
     const [products, setProducts] = useState()
     const fetchApi = async () => {  // We create an asynchronous function, where we wait for the data
     const response = await fetch(url) // These data is saved in response
@@ -15,12 +21,14 @@ const Formal = () => {
         fetchApi()
     }, [])
 
+    const context = useContext(ShoppingCartContext)
+
     return (
         <>
-            <section id='home'>
-                    { !products ? 'Cargando' : products.map((product) => {
+            <section id='classic'>
+                    { !products ? 'Cargando' : products.map((product, key) => {
                     return  (
-                        <article className="articleContainer">   
+                        <article className="articleContainer" key={product.id} onClick={() => {context.openProductDetail()}}>   
                             <div className="imgContainer">
                                 <img src={product.img_product} alt="personaje" className="img" />
                             </div>
@@ -28,7 +36,9 @@ const Formal = () => {
                                 <h1 className="productTtitle">{product.title_product}</h1> 
                                 <div className='buySection'>
                                     <p className='price'>${product.price}</p>
-                                    <img className='cart' src={cart} alt='buy dress'/>
+                                    <div className="plusIconContainer">
+                                        <PlusIcon className="plusIcon" alt='buy dress' onClick={() => context.setCount(context.count + 1)}/>
+                                    </div>
                                 </div>
                             </div>
                         </article>
@@ -39,4 +49,4 @@ const Formal = () => {
     )
 }
 
-export {Formal}
+export {Classic}
