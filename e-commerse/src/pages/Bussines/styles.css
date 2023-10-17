@@ -6,18 +6,3 @@
     top: 120px;
     left: 40px;
 }
-.plusIconContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.plusIcon{
-    width: 30px;
-    margin: 0 16px;
-    border-radius: 30%;
-    border: 1px solid black;
-    transition: all 0.2s;
-}
-.plusIcon:hover{
-    transform: scale(1.2);
-}

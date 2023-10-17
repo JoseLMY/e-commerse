@@ -1,5 +1,5 @@
 import { useState, useEffect , useContext} from "react"
-import { PlusIcon } from '@heroicons/react/24/solid'
+import { PlusIcon, CheckIcon } from '@heroicons/react/24/solid'
 
 import { ShoppingCartContext } from '../../Context'
 
@@ -21,25 +21,54 @@ const Sport = () => {
 
     const context = useContext(ShoppingCartContext) 
 
+    const showProduct = (product) => { /*We pass the data by props of function showProducts*/
+    context.openProductDetail()
+    context.setProductToShow(product) /*And here is where we need the data*/
+    }
+
+    const addProductToCart = (produtData) =>{
+        context.setCount(context.count + 1)
+        context.setCartProducts([...context.cartProducts, produtData])
+    }
+
+    const renderIcon = (product, id) => {
+
+        const isInCart = context.cartProducts.filter(product => product.id === id).length > 0
+        if(isInCart){
+            return (
+                <div className="plusIconContainer " >
+                    <CheckIcon className="checkIcon" alt='buy dress' />
+                </div>
+            )
+        } else {
+            return (
+                <div className="plusIconContainer " >
+                    <PlusIcon className="plusIcon" alt='buy dress' onClick={() => {addProductToCart(product)}}/>
+                </div>
+        )}
+    }
+
     return (
         <>
             <section id='sport'>
                     { !products ? 'Cargando' : products.map((product, key) => {
                     return  (
-                        <article className="articleContainer" key={product.id} onClick={() => {context.openProductDetail()}}>   
-                            <div className="imgContainer">
-                                <img src={product.img_product} alt="personaje" className="img" />
-                            </div>
-                            <div className="details">
-                                <h1 className="productTtitle">{product.title_product}</h1> 
-                                <div className='buySection'>
-                                    <p className='price'>${product.price}</p>
-                                    <div className="plusIconContainer">
-                                        <PlusIcon className="plusIcon" alt='buy dress' onClick={() => context.setCount(context.count + 1)}/>
+                        <div className='allArticles'>
+                            <article className="articleContainer" key={product.id} onClick={() => showProduct(product)}>   
+                                <div className="imgContainer">
+                                    <img src={product.img_product} alt="personaje" className="img" />
+                                </div>
+                                <div className="details">
+                                    <h1 className="productTtitle">{product.title_product}</h1> 
+                                    <div className='buySection'>
+                                        <p className='price'>${product.price}</p>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
+                            </article>
+                            {
+                                renderIcon()
+                            }
+                        </div>
                     )})}
                 
             </section>

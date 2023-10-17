@@ -4,11 +4,13 @@
     justify-content: center;
     position: absolute;
     top: 120px;
+    width: 100%;    
 }
 .allArticles{
-    margin-top: 100px;
+    position: relative;
 }
 .articleContainer{
+    background-color: white;
     margin: 16px;
     width: 320px;
     height: 460px;
@@ -39,17 +41,46 @@
 .buySection{
     display: flex;
     position: absolute;
-    right: 0;
+    right: 20px;
 }
 .price{
     font-size: 20px;
     font-weight: 600;
 }
-.cart{
-    margin: 0 16px;
-    transition: all 0.3s;
-    width: 30px;
+.checkIcon{
+    color: black;
+    background-color: aliceblue;
 }
-.cart:hover{
-    transform: scale(1.2);
+.plusIconContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    top: 24px;
+    right: 12px;
+}
+.plusIcon{
+    width: 30px;
+    margin: 0 16px;
+    border-radius: 50%;
+    border: 1px solid black;
+    transition: all 0.2s;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.637);
+    padding: 3px;
+    box-sizing: border-box;
+}
+.plusIcon:hover{
+    background-color: black;
+    cursor: pointer;
+}
+.checkIcon{
+    color: white;
+    width: 30px;
+    margin: 0 16px;
+    border-radius: 50%;
+    padding: 3px;
+    box-sizing: border-box;
+    background-color: rgb(33, 177, 45);
 }
