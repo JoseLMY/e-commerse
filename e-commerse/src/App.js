@@ -11,6 +11,7 @@ import { Sport } from './pages/Sport';
 import { Elegant } from './pages/Elegant';
 import { Formal } from './pages/Formal';
 import { LogIn } from './pages/LogIn';
+import { SignUp } from './pages/SignUp';
 import {NotFound} from './pages/NotFound'
 import { CheckoutSideMenu } from './components/CheckoutSideMenu';
 
@@ -22,7 +23,6 @@ function App() {
         <BrowserRouter>
             <NavBar />
             <CheckoutSideMenu />
-            <LogIn />
           <Routes>
             <Route  path="/" element={<Home />} />
             <Route  path="/classic" element={<Classic />} />
@@ -31,6 +31,8 @@ function App() {
             <Route  path="/sport" element={<Sport />} />
             <Route  path="/elegant" element={<Elegant />} />
             <Route  path="/formal" element={<Formal />} />
+            <Route  path='/login' element={<LogIn /> } />
+            <Route  path='/signup' element={<SignUp /> } />
             <Route  path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

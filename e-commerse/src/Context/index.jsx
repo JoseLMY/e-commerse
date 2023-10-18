@@ -17,7 +17,7 @@ export const ShoppingCartProvider = ({children}) => {
     const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
 
     //Create Account - Open / Close
-    const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(false)
+    const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(true)
     const openCreateAccount = () => setIsCreateAccountOpen(true)
     const closeCreateAccount = () => setIsCreateAccountOpen(false)
 

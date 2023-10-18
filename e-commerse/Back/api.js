@@ -1,3 +1,4 @@
+const Swal = require('sweetalert2')
 const express = require("express")
 const cors = require('cors');
 const mysql = require('mysql');
@@ -12,6 +13,19 @@ const connection = mysql.createConnection({
     database: 'bd_proyecto_tienda'
   });
 connection.connect((error) => {
+  if (error) {
+    console.error('Error al conectar a la base de datos:', error);
+  } else {
+    console.log('Conexión exitosa a la base de datos MySQL');
+  }
+})
+const connectionUsers = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root123',
+    database: 'bd_proyecto_tienda_users'
+  });
+  connectionUsers.connect((error) => {
   if (error) {
     console.error('Error al conectar a la base de datos:', error);
   } else {
@@ -87,6 +101,41 @@ app.get('/sport', (req, res) => {
     console.log(err);
   }
 })
+})
+
+app.post('/signIn', (req, res) => {
+  let valuesJSON = (req.body);
+  let id = 0
+  let full_name = valuesJSON.fullName
+  let email = valuesJSON.email
+  let password = valuesJSON.password
+  for (let i = 0; i = id; i++) {
+    return id = i
+  }
+  let values = [ id, full_name, email, password]
+
+  //DATA VALIDATE
+
+  let buscar = "SELECT * FROM users WHERE email = '"+email+"' "
+  connectionUsers.query(buscar, (err, user) => {
+    if (err){
+      throw err
+    } else {
+      if(user.length > 0){
+        console.log("No se puede registrar, usuario ya existe");
+      } else {
+        const sql = "INSERT INTO users (id, full_name, email, password) VALUES (?, ?, ?, ?)"
+        connectionUsers.query(sql, values, (err, user) => {
+          if(!err){
+              res.send(user)
+          } else {
+              console.log(err);
+          }
+        })
+      }
+    }
+  })
+
 })
 const port = process.env.port || 5173
 app.listen(port, () => console.log(`Listening port ${port}...`))

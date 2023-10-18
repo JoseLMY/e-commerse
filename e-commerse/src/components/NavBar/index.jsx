@@ -20,15 +20,6 @@ const NavBar = () =>  {
         }
     }
 
-    const openCreateAccount = () =>{
-        if (context.isCreateAccountOpen) {
-            context.closeCreateAccount()
-        } else {
-            context.openCreateAccount()
-        }
-    }
-
-
     return (
         <>
             <nav className="navBar">
@@ -70,7 +61,7 @@ const NavBar = () =>  {
                     </div>
                 </div>
                 <div className="loginContainer">
-                    <button onClick={() => {openCreateAccount()}} className="login" >LOG IN</button>
+                    <a className="login" href="/login" >LOG IN</a>
                 </div>
                 <ProductDetail/>
             </nav>

@@ -1,37 +1,32 @@
-import React, { useContext} from 'react'
+import React from 'react'
 import { XMarkIcon } from "@heroicons/react/24/solid"
-
-import { ShoppingCartContext } from '../../Context'
 
 import "./styles.css"
 const LogIn = () => {
 
-    const context = useContext(ShoppingCartContext)
-
-    const openCreateAccount = () =>{
-        if (context.isCreateAccountOpen) {
-            context.closeCreateAccount()
-        } else {
-            context.openCreateAccount()
-        }
-    }
 
     return (
         <>
-           <div className= {`${context.isCreateAccountOpen ? 'ver' : 'ocultar'} loginFormContainer`}>
-                <div className='formContainer'>
-                    <form action="" method="post" className="form">
-                        <div className="headerCreateAccount">
-                            <p className="titleCreateAccount"> CREATE ACCOUNT</p>
-                            <XMarkIcon className="cancelCreateAccount" onClick={() => {openCreateAccount()}}/>
+           <div className= {`loginFormContainer`}>
+                <div className="form-box">
+                    <form className="form">
+                        <div className='headerLogin'>
+                            <span className="title">Log In</span>
+                            <a href='/'>
+                                <XMarkIcon className='XMarkIcon' />
+                            </a>
                         </div>
-                        <input type="text" placeholder="Full Name" className="inputs"/>
-                        <input type="text" placeholder="Correo:" className="inputs"/>
-                        <input type="text" placeholder="Password" className="inputs"/>
-                        <button type="submit">Create Account</button>
+                        <div className="form-container">
+                            <input type="email" className="input" name='email' placeholder="Email" />
+                            <input type="password" className="input" name='password' placeholder="Password" />
+                        </div>
+                        <button>Log In</button>
                     </form>
+                    <div className="form-section">
+                        <p>Don't have an account? <a href="/signup">Sign Up</a> </p>
+                    </div>
                 </div>
-           </div>
+            </div>
         </>
     )
 }
