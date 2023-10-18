@@ -28,6 +28,26 @@ const SignUp = () => {
         })
         
     }
+    const url = 'http://localhost:5173/validate' //Here we are calling the api, in this case the api is local.
+    const [emails, setEmails] = useState()
+    const fetchApi = async () => {  // We create an asynchronous function, where we wait for the data
+    const response = await fetch(url) // These data is saved in response
+    
+    const responseJSON = await response.json()
+    setEmails(responseJSON)
+    }
+
+    useEffect(() => {
+        fetchApi()
+    }, [])
+
+    const dataValidate = () => {
+        if (emails.length > 0) {
+            alert("The user cannot be created, because it already exists.")
+        } else{
+            alert("Congratulation, already you have one user")
+        }
+    }
 
     return (
         <>
@@ -72,7 +92,7 @@ const SignUp = () => {
                                 onChange={handleInputsChange}
                             />
                         </div>
-                        <button type='submit'>CONFIRM</button>
+                        <button type='submit' onClick={()=>{dataValidate()}}>CONFIRM</button>
                     </form>
                     <div className='form-section'>
                         <p>Have an account? <a href='/login'>Log In</a> </p>

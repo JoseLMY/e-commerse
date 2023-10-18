@@ -102,6 +102,17 @@ app.get('/sport', (req, res) => {
   }
 })
 })
+app.get('/validate', (req, res) => {
+  let emails = "SELECT email FROM users"
+  connectionUsers.query(emails, (err, email) => {
+    if(!err){
+      res.json(email)
+      console.log(email);
+    } else {
+      console.log(err);
+    }
+  })
+})
 
 app.post('/signIn', (req, res) => {
   let valuesJSON = (req.body);
@@ -113,11 +124,10 @@ app.post('/signIn', (req, res) => {
     return id = i
   }
   let values = [ id, full_name, email, password]
-
+  
   //DATA VALIDATE
-
-  let buscar = "SELECT * FROM users WHERE email = '"+email+"' "
   connectionUsers.query(buscar, (err, user) => {
+    let buscar = "SELECT * FROM users WHERE email = '"+email+"' "
     if (err){
       throw err
     } else {
