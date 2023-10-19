@@ -1,4 +1,3 @@
-const Swal = require('sweetalert2')
 const express = require("express")
 const cors = require('cors');
 const mysql = require('mysql');
@@ -16,7 +15,7 @@ connection.connect((error) => {
   if (error) {
     console.error('Error al conectar a la base de datos:', error);
   } else {
-    console.log('Conexión exitosa a la base de datos MySQL');
+    console.log('Successful connection to the database of PRODUCTS 🛒');
   }
 })
 const connectionUsers = mysql.createConnection({
@@ -29,7 +28,7 @@ const connectionUsers = mysql.createConnection({
   if (error) {
     console.error('Error al conectar a la base de datos:', error);
   } else {
-    console.log('Conexión exitosa a la base de datos MySQL');
+    console.log('Successful connection to the database of USERS 🙎‍♂️');
   }
 })
 
@@ -102,12 +101,22 @@ app.get('/sport', (req, res) => {
   }
 })
 })
+
 app.get('/validate', (req, res) => {
   let emails = "SELECT email FROM users"
   connectionUsers.query(emails, (err, email) => {
     if(!err){
       res.json(email)
-      console.log(email);
+    } else {
+      console.log(err);
+    }
+  })
+})
+app.get('/pass', (req, res) => {
+  let password = "SELECT password FROM users"
+  connectionUsers.query(password, (err, password) => {
+    if(!err){
+      res.json(password)
     } else {
       console.log(err);
     }
@@ -126,12 +135,12 @@ app.post('/signIn', (req, res) => {
   let values = [ id, full_name, email, password]
   
   //DATA VALIDATE
+  let buscar = "SELECT * FROM users WHERE email = '"+email+"' "
   connectionUsers.query(buscar, (err, user) => {
-    let buscar = "SELECT * FROM users WHERE email = '"+email+"' "
     if (err){
       throw err
     } else {
-      if(user.length > 0){
+      if(user.length > 0 || password === ""){
         console.log("No se puede registrar, usuario ya existe");
       } else {
         const sql = "INSERT INTO users (id, full_name, email, password) VALUES (?, ?, ?, ?)"

@@ -29,7 +29,6 @@ export const ShoppingCartProvider = ({children}) => {
 
     //Get Products
     const [products, setProducts] = useState()
-
     const url = 'http://localhost:5173' //Here we are calling the api, in this case the api is local.
     const fetchApi = async () => {  // We create an asynchronous function, where we wait for the data
     const response = await fetch(url) // These data is saved in response

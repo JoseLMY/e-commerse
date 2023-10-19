@@ -50,7 +50,6 @@ const NavBar = () =>  {
                             <Link className='links' to="/formal" onClick={() => closeDetails()}>Formal</Link>
                         </li>
                     </ul>
-                    <input type="text" placeholder='Search a Product' className='search'/>
                 </div>
                 <div className="cartNavContainer" onClick={() => {openCheckoutSideMenu()}}>
                     <div className="cartProducts">
