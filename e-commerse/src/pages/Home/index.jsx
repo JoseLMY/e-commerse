@@ -15,25 +15,26 @@ const Home = () => {
     }
 
     const addProductToCart = (produtData) =>{
-        context.setCount(context.count + 1)
         context.setCartProducts([...context.cartProducts, produtData])
     }
-
+    
     const renderIcon = (product, id) => {
 
         const isInCart = context.cartProducts.filter(product => product.id === id).length > 0
         if(isInCart){
+            localStorage.setItem('item', JSON.stringify(context.cartProducts))
             return (
                 <div className="plusIconContainer " >
                     <CheckIcon className="checkIcon" alt='buy dress' />
                 </div>
-            )
+            )   
         } else {
             return (
                 <div className="plusIconContainer " >
                     <PlusIcon className="plusIcon" alt='buy dress' onClick={() => {addProductToCart(product)}}/>
                 </div>
-        )}
+        )
+    }
     }   
 
     return (

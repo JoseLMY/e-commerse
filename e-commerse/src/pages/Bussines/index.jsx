@@ -35,6 +35,7 @@ const Bussines = () => {
 
         const isInCart = context.cartProducts.filter(product => product.id === id).length > 0
         if(isInCart){
+            localStorage.setItem('item', JSON.stringify(context.cartProducts))
             return (
                 <div className="plusIconContainer " >
                     <CheckIcon className="checkIcon" alt='buy dress' />

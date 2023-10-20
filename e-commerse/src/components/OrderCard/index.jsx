@@ -8,7 +8,7 @@ const OrderCard = props => {
         id,
         title,
         price,
-        handleDelete
+        handleDelete,
     } = props
     return (
         <>

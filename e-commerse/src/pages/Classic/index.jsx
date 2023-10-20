@@ -36,6 +36,7 @@ const Classic = () => {
     const renderIcon = (product, id) => {
 
         const isInCart = context.cartProducts.filter(product => product.id === id).length > 0
+        localStorage.setItem('item', JSON.stringify(context.cartProducts))
         if(isInCart){
             return (
                 <div className="plusIconContainer " >

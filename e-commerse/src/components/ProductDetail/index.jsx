@@ -29,8 +29,10 @@ const ProductDetail = () => {
         <>
             <aside className={`${context.isProductDetailOpen ? 'flex' : 'hidden'} productDetail`}>
                 <div className='headerProductDetail'>
-                    <h1>DETAILS: </h1>
-                    <XMarkIcon className='xMarkIcon' onClick={() => {
+                    <div className="titleDetailsHeader">
+                        <h1>DETAILS: </h1>
+                    </div>
+                    <XMarkIcon className='xMarkIcon xmarkCancel' onClick={() => {
                         context.closeProductDetail()
                     }}/>
                 </div>

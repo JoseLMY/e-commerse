@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { XMarkIcon, ChevronLeftIcon } from '@heroicons/react/24/solid'
 import swet from 'sweetalert'
-import rocket from "../../assets/rockey.svg"
 
 import './styles.css'
 const SignUp = () => {
@@ -73,17 +72,12 @@ const SignUp = () => {
     return (
         <>
            <div className= {`loginFormContainer`}>
-                <div className='logoContainer'>
-                    <h1 className='logoBackground'>
-                        <img src={rocket} alt="" /> COMMERCE
-                    </h1>
-                </div>
                 <div className='form-box'>
                     <form className='form' onSubmit={(e) => dataValidate(emails, e)}>
                         <div className='headerLogin'>
                             <div className='backLogin'>
                                 <a href='/login'>
-                                    <ChevronLeftIcon className='XMarkIcon'/>
+                                    <ChevronLeftIcon className='XMarkIcon '/>
                                 </a>
                                 <div>
                                     <span className='title'>
@@ -92,7 +86,7 @@ const SignUp = () => {
                                 </div>
                             </div>
                             <a href='/'>
-                                <XMarkIcon className='XMarkIcon' />
+                                <XMarkIcon className='XMarkIcon xmarkCancel' />
                             </a>
                         </div>
                         <div className='form-container'>

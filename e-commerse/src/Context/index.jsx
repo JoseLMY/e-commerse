@@ -25,7 +25,7 @@ export const ShoppingCartProvider = ({children}) => {
     const [productToShow, setProductToShow] = useState({})
 
     //Shopping Cart - Add Product to cart
-    const [cartProducts, setCartProducts] = useState([])
+    const [cartProducts, setCartProducts] = useState(JSON.parse(localStorage.getItem('item')) || [])
 
     //Get Products
     const [products, setProducts] = useState()
@@ -40,6 +40,7 @@ export const ShoppingCartProvider = ({children}) => {
     useEffect(() => {
         fetchApi()
     }, [])
+
     
     return (
         <>
