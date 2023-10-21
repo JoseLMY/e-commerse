@@ -44,6 +44,7 @@ const ProductDetail = () => {
                         <p className="titleProduct">{product.title_product}</p>
                         <p className="priceProduct">$ {product.price}</p>
                         <p className="descriptionProduct">{product.description}</p>
+                        <p className="categoryProduct">CATEGORY: {product.category}</p>
                         {
                             renderButton(product, product.id)
                         }

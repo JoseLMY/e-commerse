@@ -14,6 +14,14 @@ const CheckoutSideMenu = () => {
         const filteredProducts = context.cartProducts.filter(product => product.id !== id)
         context.setCartProducts(filteredProducts)
     }
+
+    const buy = () => {
+        if (context.bttLogin) {
+            window.location.href = "http://localhost:3000/pay"
+        } else {
+            window.location.href = "http://localhost:3000/login"
+        }
+    }
     
     return (
         <>
@@ -43,7 +51,12 @@ const CheckoutSideMenu = () => {
                     <p className="total">TOTAL:</p>
                     <p className="totalPrice">$ {totalPrice(context.cartProducts)}</p>
                 </div>
-                <button className="bttConfirmBuy">PAY</button>
+                <button 
+                    className="bttConfirmBuy"
+                    onClick={()=>{buy()}}
+                >
+                    PAY
+                </button>
             </aside>
         </>
     )

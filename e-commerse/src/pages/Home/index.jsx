@@ -41,11 +41,11 @@ const Home = () => {
         <>
             <section id='home'>
             
-                    { !context.products ? 'Cargando' : context.products.map((product) => {
+                    { !context.products ? 'Cargando' : context.products.map((product, key) => {
                         return  (
                             <> 
-                                <div className='allArticles' >
-                                    <article className="articleContainer"  onClick={() => showProduct(product)} >  {/* Here i send product for props of the function, because later we're will need when send the data */}
+                                <div className='allArticles' key={product.id}>
+                                    <article className="articleContainer" key={product.id} onClick={() => showProduct(product)} >  {/* Here i send product for props of the function, because later we're will need when send the data */}
                                         <div className="imgContainer">
                                             <img src={product.img_product} alt="personaje" className="img" />
                                         </div>

@@ -1,0 +1,89 @@
+.flex{
+    display: block !important;
+}
+.hidden{
+    display: none !important;
+}
+.allCategoriesContainer{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.281);
+    position: fixed;
+    top: 73px;
+    left: 0;
+    display: none;
+}
+.categoriesContainer{
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+    max-width: 60%;
+    height: 100vh;
+    background-color: rgb(233, 233, 233);
+}
+.categories-li{
+    height: 60%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.categories-li li {
+    width: 90%;
+    height: 32px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s;
+}
+.categories-li li:hover{
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+.categories{
+    text-decoration: none;
+    margin: 0;
+    color: black;
+    font-size: 22px;
+    font-weight: 600;
+    width: 100%;
+}
+.actionContainer{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.emailMobile{
+    position: fixed;
+    bottom: 50px;
+    font-size: 22px;
+    color: gray;
+}
+.bttLogOutMobile{
+    position: fixed;
+    bottom: 20px;
+    width: 160px;
+    height: 32px;
+    color: azure;
+    background-color: black;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.bttLogOutMobile:hover{
+    background-color: rgb(7, 23, 54);
+    border-radius: 8px;
+}
+@media(min-width: 900px){
+    .allCategoriesContainer{
+        display: none !important;
+    }
+}

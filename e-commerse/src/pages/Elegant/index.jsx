@@ -55,7 +55,7 @@ const Elegant = () => {
             <section id='elegant'>
                     { !products ? 'Cargando' : products.map((product, key) => {
                     return  (
-                        <div className='allArticles'>
+                        <div className='allArticles' key={product.id}>
                             <article className="articleContainer" key={product.id} onClick={() => showProduct(product)}>   
                                 <div className="imgContainer">
                                     <img src={product.img_product} alt="personaje" className="img" />

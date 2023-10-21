@@ -14,6 +14,7 @@ import { LogIn } from './pages/LogIn';
 import { SignUp } from './pages/SignUp';
 import {NotFound} from './pages/NotFound'
 import { CheckoutSideMenu } from './components/CheckoutSideMenu';
+import { Pay } from './pages/Pay';
 
 function App() {
   
@@ -33,6 +34,7 @@ function App() {
             <Route  path="/formal" element={<Formal />} />
             <Route  path='/login' element={<LogIn /> } />
             <Route  path='/signup' element={<SignUp /> } />
+            <Route  path='/pay' element={<Pay /> } />
             <Route  path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

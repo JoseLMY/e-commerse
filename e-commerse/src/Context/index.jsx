@@ -22,6 +22,10 @@ export const ShoppingCartProvider = ({children}) => {
     const openViewSettings = () => setViewSettings(true)
     const closeViewSettings = () => setViewSettings(false)
 
+    const [seeCategories, setSeeCategories] = useState(false)
+    const openSeeCategories = () => setSeeCategories(true)
+    const closeSeeCategories = () => setSeeCategories(false)
+
     //Create Account - Open / Close
     const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(true)
     const openCreateAccount = () => setIsCreateAccountOpen(true)
@@ -72,7 +76,10 @@ export const ShoppingCartProvider = ({children}) => {
                 setBttLogin,
                 viewSettings,
                 openViewSettings,
-                closeViewSettings
+                closeViewSettings,
+                seeCategories,
+                openSeeCategories,
+                closeSeeCategories
             }}>
                 {children}
             </ShoppingCartContext.Provider>

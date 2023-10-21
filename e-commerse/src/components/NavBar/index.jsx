@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import {Link} from "react-router-dom"
-import { ShoppingBagIcon, Bars3BottomRightIcon } from "@heroicons/react/24/solid"
+import { ShoppingBagIcon, Bars3BottomRightIcon, Bars3BottomLeftIcon } from "@heroicons/react/24/solid"
 
 import { ShoppingCartContext } from '../../Context'
 import { ProductDetail } from "../ProductDetail"
 import { Settings } from "../Settings"
+import { CategoryMobile } from "../CategoryMobile"
 
 import "./styles.css"
 const NavBar = () =>  { 
@@ -47,9 +48,22 @@ const NavBar = () =>  {
         }
     }
 
+    const seeCategories =()=>{
+        if (context.seeCategories) {
+            context.closeSeeCategories()
+        } else {
+            context.openSeeCategories()
+        }
+    }
     return (
         <>
             <nav className="navBar">
+                <div className="categorysContainer">
+                    <Bars3BottomLeftIcon 
+                        className="settingsIcon"
+                        onClick={() => seeCategories()}
+                    />
+                </div>
                 <div className="logo">
                     <h1>E-COMMERCE</h1>
                 </div>
@@ -86,11 +100,12 @@ const NavBar = () =>  {
                         <span>{context.cartProducts.length}</span>
                     </div>
                 </div>
-                {
-                    renderBttLogin()
-                }
+                    {
+                        renderBttLogin()
+                    }
                 <Settings />
                 <ProductDetail/>
+                <CategoryMobile />
             </nav>
                 
         </>
