@@ -1,13 +1,13 @@
 import { useContext } from "react"
 import {Link} from "react-router-dom"
-import { ShoppingBagIcon } from "@heroicons/react/24/solid"
+import { ShoppingBagIcon, Bars3BottomRightIcon } from "@heroicons/react/24/solid"
 
 import { ShoppingCartContext } from '../../Context'
 import { ProductDetail } from "../ProductDetail"
+import { Settings } from "../Settings"
 
 import "./styles.css"
 const NavBar = () =>  { 
-
     const context = useContext(ShoppingCartContext)
     const closeDetails = () => {
         context.closeProductDetail()   
@@ -17,6 +17,33 @@ const NavBar = () =>  {
             context.closeCheckoutSideMenu()
         } else {
             context.openCheckoutSideMenu()
+        }
+    }
+
+    const handleSettings = () =>{
+        if (context.viewSettings) {
+            context.closeViewSettings()
+        } else {
+            context.openViewSettings() 
+        }
+    }
+
+    const renderBttLogin = () =>{
+        if (!context.bttLogin) {
+            return (
+                <div className="loginContainer">
+                    <a className="login" href="/login" >LOG IN</a>
+                </div>
+            )
+        } else {
+            return (
+                <div className="userContainer">
+                    <Bars3BottomRightIcon 
+                        className="settingsIcon"
+                        onClick={() => handleSettings()}
+                    />
+                </div>
+            )
         }
     }
 
@@ -59,9 +86,10 @@ const NavBar = () =>  {
                         <span>{context.cartProducts.length}</span>
                     </div>
                 </div>
-                <div className="loginContainer">
-                    <a className="login" href="/login" >LOG IN</a>
-                </div>
+                {
+                    renderBttLogin()
+                }
+                <Settings />
                 <ProductDetail/>
             </nav>
                 

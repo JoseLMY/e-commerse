@@ -86,3 +86,20 @@
 .login:hover{
     transform: scale(1.2);
 }
+.userContainer{
+    width: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.settingsIcon{
+    width: 40px;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 8px;
+}
+.settingsIcon:hover{
+    background-color: rgb(228, 228, 228);
+    transform: scale(1.1);
+}

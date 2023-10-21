@@ -1,0 +1,70 @@
+.settingsContainer{
+    background-color: rgb(255, 255, 255);
+    width: 320px;
+    height: auto;
+    padding: 6px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+    top: 90px;
+    right: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 16px black;
+}
+.settingsHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.settingsTitle p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.XMarkIconSettingsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.XMarkIconSettings{
+    width: 40px;
+    border-radius: 50%;
+    color: black;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.XMarkIconSettings:hover{
+    background-color: gainsboro;
+    cursor: pointer;
+}
+.emailSettingsContainer{
+    height: 32px;
+    display: flex;
+    padding-left: 12px;
+}
+.emailSettingsContainer p{
+    font-size: 22px;
+    margin: 0;
+    color: gray;
+    text-decoration: underline;
+}
+.bttLogOutContainer{    
+    margin-top: 42px;
+    height: 42px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bttLogOutContainer button {
+    width: 40%;
+    height: 80%;
+    color: white;
+    background-color: black;
+    font-size: 16px;
+    font-weight: 600;
+}
+.bttLogOutContainer button:hover{
+    cursor: pointer;
+}

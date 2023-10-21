@@ -16,6 +16,12 @@ export const ShoppingCartProvider = ({children}) => {
     const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
     const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
 
+    //Checkout button login / view / hidden
+    const [bttLogin, setBttLogin] = useState(JSON.parse(localStorage.getItem('state')) ||false)
+    const [viewSettings, setViewSettings] = useState(false)
+    const openViewSettings = () => setViewSettings(true)
+    const closeViewSettings = () => setViewSettings(false)
+
     //Create Account - Open / Close
     const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(true)
     const openCreateAccount = () => setIsCreateAccountOpen(true)
@@ -62,6 +68,11 @@ export const ShoppingCartProvider = ({children}) => {
                 isCreateAccountOpen,
                 openCreateAccount,
                 closeCreateAccount,
+                bttLogin,
+                setBttLogin,
+                viewSettings,
+                openViewSettings,
+                closeViewSettings
             }}>
                 {children}
             </ShoppingCartContext.Provider>

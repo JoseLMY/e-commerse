@@ -1,10 +1,12 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import { XMarkIcon } from "@heroicons/react/24/solid"
 import swet from 'sweetalert'
 
+import { ShoppingCartContext } from '../../Context'
+
 import "./styles.css"
 const LogIn = () => {
-
+    const context = useContext(ShoppingCartContext)
     const url = 'http://localhost:5173/validate' //Here we are calling the api, in this case the api is local.
     const [emails, setEmails] = useState([])
     const fetchApi = async () => {  // We create an asynchronous function, where we wait for the data
@@ -49,6 +51,9 @@ const LogIn = () => {
                         icon: "success",
                         buttons: false
                     })
+                localStorage.setItem('user', JSON.stringify(valueInputEmail))
+                localStorage.setItem('state', JSON.stringify(true))
+                context.setBttLogin(true)
                 setTimeout(() => {
                     window.location.href ="http://localhost:3000/"
                 }, 3000)
