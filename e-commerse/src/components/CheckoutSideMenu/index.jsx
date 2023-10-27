@@ -13,6 +13,19 @@ const CheckoutSideMenu = () => {
     const handleDelete = (id) =>{
         const filteredProducts = context.cartProducts.filter(product => product.id !== id)
         context.setCartProducts(filteredProducts)
+        updateValueRemoved(id)
+    }
+
+    const updateValueRemoved =(id)=>{
+        let valueId = {
+            id
+        }
+        console.log(valueId);
+        let valuesJSON = JSON.stringify(valueId)
+            fetch("http://localhost:5173/update-value-removed", {
+                method: 'post',
+                body: valuesJSON
+            })
     }
 
     const buy = () => {
@@ -22,6 +35,7 @@ const CheckoutSideMenu = () => {
             window.location.href = "http://localhost:3000/login"
         }
     }
+
     
     return (
         <>

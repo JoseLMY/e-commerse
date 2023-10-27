@@ -123,6 +123,64 @@ app.get('/pass', (req, res) => {
   })
 })
 
+app.post('/update-value-added', (req, res) => {
+  let id = (req.body).id
+  // ID del producto que voy a buscar
+  const productId = id; // el ID del producto
+  // Sentencia SQL para seleccionar el nombre del producto por ID
+  const sql = 'SELECT added FROM products WHERE id = ?';
+  connection.query(sql, [productId], (err, results) => {
+    if (err) {
+      console.error('Error al seleccionar el nombre del producto: ' + err);
+      return;
+    }
+    if (results.length > 0) {
+      const productName = results[0].added;
+      let update = productName + 1
+      const sql = "UPDATE products SET added = ? WHERE id = ?"
+      const values = [update, id]
+      connection.query(sql, values, (err, results) => {
+        if (err) {
+          console.error('Error al actualizar los datos: ' + err)
+          return;
+        }
+        console.log('Datos actualizados exitosamente')
+  })
+
+      } else {
+        console.log('Producto no encontrado');
+      }
+    });
+})
+
+app.post('/update-value-removed', (req, res) => {
+  let id = (req.body).id
+  // ID del producto que voy a buscar
+  const productId = id; // el ID del producto
+  // Sentencia SQL para seleccionar el nombre del producto por ID
+  const sql = 'SELECT removed FROM products WHERE id = ?';
+  connection.query(sql, [productId], (err, results) => {
+    if (err) {
+      console.error('Error al seleccionar el nombre del producto: ' + err);
+      return;
+    }
+    if (results.length > 0) {
+      const productName = results[0].removed;
+      let update = productName + 1
+      const sql = "UPDATE products SET removed = ? WHERE id = ?";
+      const values = [update, id]
+      connection.query(sql, values, (err, results) => {
+        if (err) {
+          console.error('Error al actualizar los datos: ' + err);
+          return;
+        }
+        console.log('Datos removidos exitosamente');
+      })
+  } else {
+      console.log('Producto no encontrado');
+  }})
+})
+
 app.post('/signIn', (req, res) => {
   let valuesJSON = (req.body);
   let id = 0
