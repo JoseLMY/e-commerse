@@ -20,7 +20,6 @@ const CheckoutSideMenu = () => {
         let valueId = {
             id
         }
-        console.log(valueId);
         let valuesJSON = JSON.stringify(valueId)
             fetch("http://localhost:5173/update-value-removed", {
                 method: 'post',

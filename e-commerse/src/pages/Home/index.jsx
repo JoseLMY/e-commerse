@@ -16,6 +16,7 @@ const Home = () => {
 
     const addProductToCart = (produtData) =>{
         context.setCartProducts([...context.cartProducts, produtData])
+        updateValueAdded(produtData)
     }
     
     const renderIcon = (product, id) => {
@@ -35,7 +36,17 @@ const Home = () => {
                 </div>
         )
     }
-    }   
+    } 
+    const updateValueAdded =(id)=>{
+        let valueId = {
+            id: id.id
+        }
+        let valuesJSON = JSON.stringify(valueId)
+            fetch("http://localhost:5173/update-value-added", {
+                method: 'post',
+                body: valuesJSON
+            })
+    }  
 
     return (
         <>

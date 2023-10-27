@@ -27,7 +27,17 @@ const Classic = () => {
     context.openProductDetail()
     context.setProductToShow(product) /*And here is where we need the data*/
     }
-
+    
+    const updateValueAdded =(id)=>{
+        let valueId = {
+            id: id.id
+        }
+        let valuesJSON = JSON.stringify(valueId)
+            fetch("http://localhost:5173/update-value-added", {
+                method: 'post',
+                body: valuesJSON
+            })
+    }
     const addProductToCart = (produtData) =>{
         context.setCount(context.count + 1)
         context.setCartProducts([...context.cartProducts, produtData])
@@ -52,16 +62,6 @@ const Classic = () => {
         )}
     }
 
-    const updateValueAdded =(id)=>{
-        let valueId = {
-            id: id.id
-        }
-        let valuesJSON = JSON.stringify(valueId)
-            fetch("http://localhost:5173/update-value-added", {
-                method: 'post',
-                body: valuesJSON
-            })
-    }
 
     return (
         <>

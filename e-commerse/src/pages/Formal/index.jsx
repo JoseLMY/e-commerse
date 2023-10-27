@@ -30,6 +30,7 @@ const Formal = () => {
     const addProductToCart = (produtData) =>{
         context.setCount(context.count + 1)
         context.setCartProducts([...context.cartProducts, produtData])
+        updateValueAdded(produtData)
     }
 
     const renderIcon = (product, id) => {
@@ -48,6 +49,16 @@ const Formal = () => {
                     <PlusIcon className="plusIcon" alt='buy dress' onClick={() => {addProductToCart(product)}}/>
                 </div>
         )}
+    }
+    const updateValueAdded =(id)=>{
+        let valueId = {
+            id: id.id
+        }
+        let valuesJSON = JSON.stringify(valueId)
+            fetch("http://localhost:5173/update-value-added", {
+                method: 'post',
+                body: valuesJSON
+            })
     }
 
     return (
